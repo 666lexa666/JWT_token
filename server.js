@@ -1,6 +1,11 @@
 import fetch from "node-fetch";
 import { MongoClient } from "mongodb";
 
+// Отключаем проверку сертификата TLS только для отладки
+// ⚠️ На продакшн убрать или исправить сертификат
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+
+// Переменные окружения
 const MONGO_URL = process.env.MONGO_URL;
 const DB_NAME = process.env.DB_NAME || "mydb";
 const LOGIN = process.env.LOGIN;
@@ -28,7 +33,7 @@ async function main() {
     const db = client.db(DB_NAME);
     const tokens = db.collection("tokens");
 
-    // 3. Проверка текущего токена
+    // 3. Сравнение токена
     const current = await tokens.findOne({ name: "authToken" });
 
     if (!current || current.value !== newToken) {
@@ -48,4 +53,5 @@ async function main() {
   }
 }
 
+// Запуск функции
 main();
