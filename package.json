@@ -1,7 +1,7 @@
 {
   "name": "token-updater",
   "version": "1.0.0",
-  "description": "Cron job для авторизации и обновления токена в MongoDB",
+  "description": "Cron job для авторизации и обновления токена в MongoDB через прокси",
   "main": "server.js",
   "type": "module",
   "scripts": {
@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "mongodb": "^6.9.0",
-    "node-fetch": "^3.3.2"
+    "node-fetch": "^3.3.2",
+    "https-proxy-agent": "^6.0.1"
   }
 }
