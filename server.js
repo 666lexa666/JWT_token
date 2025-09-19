@@ -1,10 +1,6 @@
 import fetch from "node-fetch";
 import { MongoClient } from "mongodb";
 
-// Отключаем проверку сертификата TLS только для отладки
-// ⚠️ На продакшн убрать или исправить сертификат
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-
 // Переменные окружения
 const MONGO_URL = process.env.MONGO_URL;
 const DB_NAME = process.env.DB_NAME || "mydb";

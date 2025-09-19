@@ -2,10 +2,13 @@
   "name": "token-updater",
   "version": "1.0.0",
   "description": "Cron job для авторизации и обновления токена в MongoDB",
-  "main": "index.js",
+  "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node index.js"
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "18.x"
   },
   "dependencies": {
     "mongodb": "^6.9.0",
